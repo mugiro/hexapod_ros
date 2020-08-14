@@ -167,8 +167,8 @@ void ServoDriver::makeSureServosAreOn( const sensor_msgs::JointState &joint_stat
 void ServoDriver::transmitServoPositions( const sensor_msgs::JointState &joint_state )
 {
     // servo drivers configuration
-    PCA9685Servo servo_driver_1;
-    PCA9685Servo servo_driver_2(0x41);
+    ServoDriver servo_driver_1;
+    ServoDriver servo_driver_2(0x41);
     
 	servo_driver_1.SetLeftUs(700);
 	servo_driver_1.SetRightUs(2400);
