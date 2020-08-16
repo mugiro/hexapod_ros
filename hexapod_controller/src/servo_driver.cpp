@@ -166,6 +166,18 @@ void ServoDriver::makeSureServosAreOn( const sensor_msgs::JointState &joint_stat
 
 void ServoDriver::transmitServoPositions( const sensor_msgs::JointState &joint_state )
 {
+    // servo drivers configuration
+    ServoDriver servo_driver_1;
+    ServoDriver servo_driver_2(0x41);
+        
+    servo_driver_1.SetLeftUs(700);
+    servo_driver_1.SetRightUs(2400);
+
+    servo_driver_2.SetLeftUs(700);
+    servo_driver_2.SetRightUs(2400);
+
+    servo_driver_1.Dump();
+    servo_driver_2.Dump();
    
     // dynamixel::GroupSyncWrite groupSyncWrite( portHandler, packetHandler, GOAL_POSITION_L, LEN_GOAL_POSITION );
     convertAngles( joint_state ); // Convert angles to servo resolution
@@ -246,18 +258,7 @@ void ServoDriver::transmitServoPositions( const sensor_msgs::JointState &joint_s
             groupSyncWrite.clearParam();
             loop_rate.sleep(); */
         }
-         // servo drivers configuration
-        ServoDriver servo_driver_1;
-        ServoDriver servo_driver_2(0x41);
-        
-        servo_driver_1.SetLeftUs(700);
-        servo_driver_1.SetRightUs(2400);
-
-        servo_driver_2.SetLeftUs(700);
-        servo_driver_2.SetRightUs(2400);
-
-        servo_driver_1.Dump();
-        servo_driver_2.Dump();
+         
 
         // Set servo positions
         for( int i = 0; i < SERVO_COUNT; i++ )
