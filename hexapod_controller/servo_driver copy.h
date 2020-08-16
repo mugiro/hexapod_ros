@@ -26,7 +26,7 @@
 
 // Author: Kevin M. Ochs
 
-// modificado 2
+// modificado
 
 
 #ifndef SERVO_DRIVER_H_
@@ -92,8 +92,8 @@ class ServoDriver
         void freeServos( void );
 
         // pca9685
-        ServoDriver(uint8_t nAddress = PCA9685_I2C_ADDRESS_DEFAULT);
-        ~ServoDriver(void);
+        PCA9685(uint8_t nAddress = PCA9685_I2C_ADDRESS_DEFAULT);
+        ~PCA9685(void);
 
         void SetPreScaller(uint8_t);
         uint8_t GetPreScaller(void);
@@ -125,8 +125,8 @@ class ServoDriver
         void Dump(void);
 
         //PCA9685Servo
-        ServoDriver(uint8_t nAddress = 0x40);
-        ~ServoDriver(void);
+        PCA9685Servo(uint8_t nAddress = 0x40);
+        ~PCA9685Servo(void);
 
         void SetLeftUs(uint16_t);
         uint16_t GetLeftUs(void) const;
