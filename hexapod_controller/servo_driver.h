@@ -37,6 +37,8 @@
 
 #include <stdint.h>
 
+#define CHANNEL(x)	(static_cast<uint8_t>(x))
+#define ANGLE(x)	(static_cast<uint8_t>(x))
 // Default setting
 #define BAUDRATE    1000000
 // #define DEVICENAME  "/dev/ttyUSB0"      // Check which port is being used on your controller
@@ -49,7 +51,7 @@
 #define PCA9685_I2C_ADDRESS_FIXED	0x70
 #define PCA9685_I2C_ADDRESSES_MAX	62
 
-#define CHANNEL(x)	(static_cast<uint8_t>(x))
+// #define CHANNEL(x)	(static_cast<uint8_t>(x))
 #define VALUE(x)	(static_cast<uint16_t>(x))
 
 #define PCA9685_VALUE_MIN	VALUE(0)
@@ -57,7 +59,7 @@
 
 #define PCA9685_PWM_CHANNELS	16
 
-#define ANGLE(x)	(static_cast<uint8_t>(x))
+// #define ANGLE(x)	(static_cast<uint8_t>(x))
 
 #define SERVO_LEFT_DEFAULT_US	1000
 #define SERVO_CENTER_DEFAULT_US	1500
@@ -82,6 +84,7 @@ class ServoDriver
     public:
         ServoDriver( void );
         ~ServoDriver( void );
+        void SetAngle(uint8_t nChannel, uint8_t nAngle);
         void transmitServoPositions( const sensor_msgs::JointState &joint_state );
         void makeSureServosAreOn( const sensor_msgs::JointState &joint_state );
         void freeServos( void );
@@ -132,7 +135,7 @@ class ServoDriver
         void Set(uint8_t nChannel, uint16_t nData);
         void Set(uint8_t nChannel, uint8_t nData);
 
-        void SetAngle(uint8_t nChannel, uint8_t nAngle);
+        // void SetAngle(uint8_t nChannel, uint8_t nAngle);
 
     private:
         // dynamixel::PortHandler *portHandler = dynamixel::PortHandler::getPortHandler(DEVICENAME); // Initialize PacketHandler instance
