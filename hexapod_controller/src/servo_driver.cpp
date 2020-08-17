@@ -169,8 +169,11 @@ void ServoDriver::makeSureServosAreOn( const sensor_msgs::JointState &joint_stat
 void ServoDriver::transmitServoPositions( const sensor_msgs::JointState &joint_state )
 {
     // servo drivers configuration
-    ServoDriver servo_driver_1(0x40);
-    ServoDriver servo_driver_2(0x41);
+    ServoDriver servo_driver_1;
+    ServoDriver servo_driver_2;
+
+    servo_driver_1.Set_Address(0x40);
+    servo_driver_2.Set_Address(0x41);
         
     servo_driver_1.SetLeftUs(700);
     servo_driver_1.SetRightUs(2400);

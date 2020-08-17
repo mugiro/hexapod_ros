@@ -84,7 +84,7 @@ enum TPCA9685Och {
 class ServoDriver
 {
     public:
-        ServoDriver( uint8_t nAddress = PCA9685_I2C_ADDRESS_DEFAULT );
+        ServoDriver( void );
         ~ServoDriver( void );
         void SetAngle(uint8_t nChannel, uint8_t nAngle);
         void transmitServoPositions( const sensor_msgs::JointState &joint_state );
@@ -94,6 +94,8 @@ class ServoDriver
         // pca9685
         // ServoDriver(uint8_t nAddress = PCA9685_I2C_ADDRESS_DEFAULT);
         // ~ServoDriver(void);
+
+        void SetAddress(uint8_t nAddress = PCA9685_I2C_ADDRESS_DEFAULT);
 
         void SetPreScaller(uint8_t);
         uint8_t GetPreScaller(void);
