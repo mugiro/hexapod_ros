@@ -26,7 +26,7 @@
 
 // Author: Kevin M. Ochs
 
-//modificado 2
+//modificado 3
 
 
 #include <servo_driver.h>
@@ -134,7 +134,7 @@ void ServoDriver::makeSureServosAreOn( const sensor_msgs::JointState &joint_stat
         // Initialize current position as cur since values would be 0 for all servos ( Possibly servos are off till now )
         for( int i = 0; i < SERVO_COUNT; i++ )
         {
-            // Read present position >>CAMBIAR
+            /* // Read present position >>CAMBIAR
             if( packetHandler->read2ByteTxRx(portHandler, ID[i], PRESENT_POSITION_L, &currentPos, &dxl_error) == COMM_SUCCESS )
             {
                 cur_pos_[i] = currentPos;
@@ -143,7 +143,7 @@ void ServoDriver::makeSureServosAreOn( const sensor_msgs::JointState &joint_stat
             else
             {
                 if( portOpenSuccess ) ROS_WARN("Read error on [ID:%02d]", ID[i]);
-            }
+            } */
         }
         ros::Duration( 0.1 ).sleep();
         // Turn torque on >> CAMBIAR
@@ -267,15 +267,15 @@ void ServoDriver::transmitServoPositions( const sensor_msgs::JointState &joint_s
         {
             if (i < 16)
             {
-                servo_driver_1.SetAngle(i, write_pos_[i])
+                servo_driver_1.SetAngle(CHANNEL(i), ANGLE(write_pos_[i]));
             }
             if(i = 16)
             {
-                servo_driver_2.SetAngle(CHANNEL(0), ANGLE(write_pos_[i]))
+                servo_driver_2.SetAngle(CHANNEL(0), ANGLE(write_pos_[i]));
             }
             if(i = 17)
             {
-                servo_driver_2.SetAngle(CHANNEL(1), ANGLE(write_pos_[i]))
+                servo_driver_2.SetAngle(CHANNEL(1), ANGLE(write_pos_[i]));
             }  
         }
         // Store write pose as current pose (goal) since we are now done

@@ -26,7 +26,7 @@
 
 // Author: Kevin M. Ochs
 
-// modificado 2
+// modificado 3
 
 
 #ifndef SERVO_DRIVER_H_
@@ -84,7 +84,7 @@ enum TPCA9685Och {
 class ServoDriver
 {
     public:
-        ServoDriver( void );
+        ServoDriver( uint8_t nAddress = PCA9685_I2C_ADDRESS_DEFAULT );
         ~ServoDriver( void );
         void SetAngle(uint8_t nChannel, uint8_t nAngle);
         void transmitServoPositions( const sensor_msgs::JointState &joint_state );
@@ -92,8 +92,8 @@ class ServoDriver
         void freeServos( void );
 
         // pca9685
-        ServoDriver(uint8_t nAddress = PCA9685_I2C_ADDRESS_DEFAULT);
-        ~ServoDriver(void);
+        // ServoDriver(uint8_t nAddress = PCA9685_I2C_ADDRESS_DEFAULT);
+        // ~ServoDriver(void);
 
         void SetPreScaller(uint8_t);
         uint8_t GetPreScaller(void);
@@ -125,8 +125,8 @@ class ServoDriver
         void Dump(void);
 
         //PCA9685Servo
-        ServoDriver(uint8_t nAddress = 0x40);
-        ~ServoDriver(void);
+        // ServoDriver(uint8_t nAddress = 0x40);
+        // ~ServoDriver(void);
 
         void SetLeftUs(uint16_t);
         uint16_t GetLeftUs(void) const;
