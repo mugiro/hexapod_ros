@@ -26,7 +26,7 @@
 
 // Author: Kevin M. Ochs
 
-// modificado 4
+// modificado 5
 
 
 #ifndef SERVO_DRIVER_H_
