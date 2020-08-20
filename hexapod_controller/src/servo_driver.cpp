@@ -26,7 +26,7 @@
 
 // Author: Kevin M. Ochs
 
-//modificado 5
+//modificado 6
 
 
 #include <servo_driver.h>
