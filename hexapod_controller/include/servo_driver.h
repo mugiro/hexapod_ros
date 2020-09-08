@@ -53,7 +53,7 @@
 #define PCA9685_I2C_ADDRESS_FIXED	0x70
 #define PCA9685_I2C_ADDRESSES_MAX	62
 
-// #define CHANNEL(x)	(static_cast<uint8_t>(x))
+#define CHANNEL(x)	(static_cast<uint8_t>(x))
 #define VALUE(x)	(static_cast<uint16_t>(x))
 
 #define PCA9685_VALUE_MIN	VALUE(0)
@@ -61,7 +61,7 @@
 
 #define PCA9685_PWM_CHANNELS	16
 
-// #define ANGLE(x)	(static_cast<uint8_t>(x))
+#define ANGLE(x)	(static_cast<uint8_t>(x))
 
 #define SERVO_LEFT_DEFAULT_US	1000
 #define SERVO_CENTER_DEFAULT_US	1500
